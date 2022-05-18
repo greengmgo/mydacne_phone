@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="test()">test</button>
+
+<script>
+    function test(){
+        setInterval(()=>{
+            console.log('123')
+        },3000)
+    }
+    function tst1(cb,say) {
+        let a=12
+        cb('haha')
+        console.log(a)
+    }
+
+    tst1((a)=>{
+        console.log(this)
+    },'123')
+
+    new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            let a=Math.round(Math.random()*10)
+            a<=5?resolve('小'):reject('大')
+        },1000)
+    }).then(res=>{
+        console.log(res)
+
+    }).catch(err=>{
+        console.log(err)
+    })
+    let a=0
+    // setInterval(()=>{
+    //     console.log(a++)
+    // },2000)
+    clearInterval()
+
+    let aobj={a:1,b:2,c:3}
+    let {a:xxx}=aobj
+    console.log(xxx)
+
+    let x=213
+    let bobj={x,y:213}
+    console.log(bobj.x)
+
+    let p={a:1,b:2,c:3}
+    let pp=new Proxy(p,{
+        get(target, p, receiver) {
+            console.log('获得一次属性')
+           return target[p]
+
+        },
+
+        set(target, p, value, receiver) {
+            console.log(`设置一次,值为${value}`)
+          target[p]=value
+        }
+    })
+
+    pp.c=123
+    console.log(pp.b)
+    console.log(p.c)
+</script>
+</body>
+</html>

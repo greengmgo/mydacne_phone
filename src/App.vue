@@ -1,30 +1,53 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+
+    <router-view />
+
 </template>
 
+
+<script>
+import {provide, ref} from "vue";
+import * as echarts from 'echarts'
+
+
+export default {
+  name: 'App',
+  setup(){
+
+    },
+
+  components: {
+
+  }
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+#app{
+  background: #f6f1eb;
+}
+#nav{
+  position: sticky;
+  top: 0;
+  height: 44px;
+  width: 100%;
+  background: #FF770F;
+  color:white;
+  font-size: 40px;
+  font-family:  黑体, "PingFang SC", 萍方, "Noto Sans", sans-serif;
   text-align: center;
-  color: #2c3e50;
+  z-index: 100;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.van-nav-bar__title{
+  color:white !important;
+  font-size: 30px !important;
+  font-family:  黑体, "PingFang SC", 萍方, "Noto Sans", sans-serif !important;
 }
 </style>
